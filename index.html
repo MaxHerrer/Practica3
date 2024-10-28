@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Interacción Creativa con JavaScript</title>
+    <style>
+        #texto {
+            color: #333;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 50px;
+            transition: color 0.5s ease, transform 0.5s ease, font-size 0.5s ease;
+        }
+        /* Estilos de los botones */
+        button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            background-color: #FFA500;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Interacción Creativa con JavaScript</h1>
+    <p id="texto">¡Mira cómo cambio de formas y colores!</p>
+
+    <!-- Botones para cambiar el estado del texto -->
+    <div style="text-align: center;">
+        <button onclick="cambiarColorAleatorioYRotar()">Color Aleatorio y Rotación</button>
+        <button onclick="cambiarTamaño()">Cambiar Tamaño</button>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Generar un color aleatorio en formato hexadecimal
+        function colorAleatorio() {
+            const letras = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letras[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function cambiarColorAleatorioYRotar() {
+            const texto = document.getElementById("texto");
+            texto.style.color = colorAleatorio();
+            texto.style.transform = texto.style.transform === "rotate(10deg)" ? "rotate(-10deg)" : "rotate(10deg)";
+        }
+
+        function cambiarTamaño() {
+            const texto = document.getElementById("texto");
+            texto.style.fontSize = texto.style.fontSize === "24px" ? "32px" : "24px";
+            texto.style.transform = texto.style.transform === "scale(1)" ? "scale(1.2)" : "scale(1)";
+        }
+    </script>
+</body>
+</html>
